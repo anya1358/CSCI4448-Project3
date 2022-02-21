@@ -12,7 +12,11 @@ public abstract class Item implements Logger {
     ItemType itemType;      // set by subclass constructors
 
     void damageAnItem(Item i) {
-
+        //first decrement the listPrice by 20%
+        //then decrement the condition
+        listPrice -= 0.2 * listPrice;
+        condition.level -= 1;
+        out("Condition has been reduced to " + condition);
     }
 
     Item() {
@@ -71,7 +75,7 @@ class CD_P extends Player {
 class RecordPlayer extends Player {
     RecordPlayer() {
         super();
-        itemType = ItemType.RecordPlayer;
+        itemType = ItemType.RECORDPLAYER;
     }
 }
 
@@ -143,7 +147,7 @@ class Hat extends Clothing {
     Hat() {
         super();
         hatSize = hatSizes[Utility.rndFromRange(0,hatSizes.length-1)];
-        itemType = ItemType.Hat;
+        itemType = ItemType.HAT;
     }
 }
 
@@ -153,14 +157,14 @@ class Shirt extends Clothing {
     Shirt() {
         super();
         shirtSize = shirtSizes[Utility.rndFromRange(0,shirtSizes.length-1)];
-        itemType = ItemType.Shirt;
+        itemType = ItemType.SHIRT;
     }
 }
 
 class Bandana extends Clothing {
     Bandana() {
         super();
-        itemType = ItemType.Bandana;
+        itemType = ItemType.BANDANA;
     }
 }
 
@@ -173,7 +177,7 @@ class PracticeAmp extends Accessory {
     PracticeAmp() {
         super();
         wattage = wattages[Utility.rndFromRange(0,wattages.length-1)];
-        itemType = ItemType.PracticeAmp;
+        itemType = ItemType.PRACTICEAMP;
     }
 }
 
@@ -183,7 +187,7 @@ class Cable extends Accessory {
     Cable() {
         super();
         length = lengths[Utility.rndFromRange(0,lengths.length-1)];
-        itemType = ItemType.Cable;
+        itemType = ItemType.CABLE;
     }
 }
 
@@ -193,6 +197,6 @@ class Strings extends Accessory {
     Strings() {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
-        itemType = ItemType.Strings;
+        itemType = ItemType.STRINGS;
     }
 }
