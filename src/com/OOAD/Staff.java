@@ -224,6 +224,15 @@ class Clerk extends Staff implements Logger {
             // reduce the condition for a random item
             // take the item off the main inventory and put it on the broken items ArrayList
             // left as an exercise to the reader :-)
+            int index = (int)(Math.random() * store.inventory.items.size());
+            Item item_to_break = store.inventory.items.get(index);
+            if(item_to_break.condition == Condition.POOR){
+                store.inventory.items.remove(item_to_break);
+                out("Item was removed from inventory.");
+                return;
+            }
+            item_to_break.damageAnItem(item_to_break);
+
         }
     }
     void leaveTheStore() {
