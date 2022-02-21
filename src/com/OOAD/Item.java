@@ -45,16 +45,40 @@ class PaperScore extends Music {
         itemType = ItemType.PAPERSCORE;
     }
 }
-class CD extends Music {
-    CD() {
+class CD_M extends Music {
+    CD_M() {
         super();
-        itemType = ItemType.CD;
+        itemType = ItemType.CD_M;
     }
 }
 class Vinyl extends Music {
     Vinyl() {
         super();
         itemType = ItemType.VINYL;
+    }
+}
+
+abstract class Player extends Item {
+}
+
+class CD_P extends Player {
+    CD_P() {
+        super();
+        itemType = ItemType.CD_P;
+    }
+}
+
+class RecordPlayer extends Player {
+    RecordPlayer() {
+        super();
+        itemType = ItemType.RecordPlayer;
+    }
+}
+
+class MP3 extends Player {
+    MP3() {
+        super();
+        itemType = ItemType.MP3;
     }
 }
 
@@ -89,9 +113,6 @@ class Mandolin extends Stringed {
 }
 
 abstract class Wind extends Instrument {
-    Wind() {
-        super();
-    }
 }
 
 class Flute extends Wind {
@@ -110,5 +131,68 @@ class Harmonica extends Wind {
         super();
         key = keys[Utility.rndFromRange(0,keys.length-1)];
         itemType = ItemType.HARMONICA;
+    }
+}
+
+abstract class Clothing extends Item {
+}
+
+class Hat extends Clothing {
+    String hatSize;
+    String hatSizes[] = {"XS", "S", "M", "L", "XL"};
+    Hat() {
+        super();
+        hatSize = hatSizes[Utility.rndFromRange(0,hatSizes.length-1)];
+        itemType = ItemType.Hat;
+    }
+}
+
+class Shirt extends Clothing {
+    String shirtSize;
+    String shirtSizes[] = {"XS", "S", "M", "L", "XL"};
+    Shirt() {
+        super();
+        shirtSize = shirtSizes[Utility.rndFromRange(0,shirtSizes.length-1)];
+        itemType = ItemType.Shirt;
+    }
+}
+
+class Bandana extends Clothing {
+    Bandana() {
+        super();
+        itemType = ItemType.Bandana;
+    }
+}
+
+abstract class Accessory extends Item {
+}
+
+class PracticeAmp extends Accessory {
+    int wattage;
+    int wattages[] = {5, 10, 15, 20, 25, 30};
+    PracticeAmp() {
+        super();
+        wattage = wattages[Utility.rndFromRange(0,wattages.length-1)];
+        itemType = ItemType.PracticeAmp;
+    }
+}
+
+class Cable extends Accessory {
+    int length;
+    int lengths[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    Cable() {
+        super();
+        length = lengths[Utility.rndFromRange(0,lengths.length-1)];
+        itemType = ItemType.Cable;
+    }
+}
+
+class Strings extends Accessory {
+    String type;
+    String[] types = {};
+    Strings() {
+        super();
+        type = types[Utility.rndFromRange(0,types.length-1)];
+        itemType = ItemType.Strings;
     }
 }

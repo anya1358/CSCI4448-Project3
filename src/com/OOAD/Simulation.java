@@ -38,6 +38,25 @@ public class Simulation implements Logger {
     }
 
     void summary() {
-        out("The summary is left as an exercise to the reader :-)");
+        int totalPrice = 0;
+        out("Items remaining in inventory: ");
+        for(int i = 0; i < store.inventory.items.size(); i++){
+            out(store.inventory.items.get(i).name);
+            totalPrice += store.inventory.items.get(i).purchasePrice;
+        }
+        out("Total value of items in inventory: " + totalPrice);
+
+        totalPrice = 0;
+        for(int i = 0; i < store.inventory.soldItems.size(); i++){
+            out(store.inventory.soldItems.get(i).name);
+            out("daySold: " + store.inventory.soldItems.get(i).daySold);
+            out("salePrice: " + store.inventory.soldItems.get(i).salePrice);
+            totalPrice += store.inventory.soldItems.get(i).salePrice;
+        }
+        out("Total salePrice: " + totalPrice);
+
+        out("Money in cash register: " + store.cashRegister);
+
+        out("Money added from bank: " + store.cashFromBank);
     }
 }
