@@ -38,6 +38,6 @@ public class Simulation implements Logger {
     }
 
     void summary() {
-        out("The summary is left as an exercise to the reader :-)");
+
     }
 }

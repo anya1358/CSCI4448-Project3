@@ -39,7 +39,7 @@ public class Inventory implements Logger {
         Item item;
         switch (type) {
             case PAPERSCORE -> item = new PaperScore();
-            case CD -> item = new CD();
+            case CD -> item = new CD_M();
             case VINYL -> item = new Vinyl();
             case GUITAR -> item = new Guitar();
             case BASS -> item = new Bass();
