@@ -1,5 +1,7 @@
 package com.OOAD;
 
+import java.util.Locale;
+
 // top level object to run the simulation
 public class Simulation implements Logger {
     Store store;
@@ -41,16 +43,14 @@ public class Simulation implements Logger {
         int totalPrice = 0;
         out("Items remaining in inventory: ");
         for(int i = 0; i < store.inventory.items.size(); i++){
-            out(store.inventory.items.get(i).name);
+            out(store.inventory.items.get(i).itemType.toString().toLowerCase());
             totalPrice += store.inventory.items.get(i).purchasePrice;
         }
         out("Total value of items in inventory: " + totalPrice);
 
         totalPrice = 0;
         for(int i = 0; i < store.inventory.soldItems.size(); i++){
-            out(store.inventory.soldItems.get(i).name);
-            out("daySold: " + store.inventory.soldItems.get(i).daySold);
-            out("salePrice: " + store.inventory.soldItems.get(i).salePrice);
+            out(store.inventory.soldItems.get(i).itemType.toString().toLowerCase() + " daySold: " + store.inventory.soldItems.get(i).daySold + " salePrice: " + store.inventory.soldItems.get(i).salePrice);
             totalPrice += store.inventory.soldItems.get(i).salePrice;
         }
         out("Total salePrice: " + totalPrice);
