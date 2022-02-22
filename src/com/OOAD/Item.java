@@ -62,6 +62,13 @@ class Vinyl extends Music {
     }
 }
 
+class Cassette_M extends Music {
+    Cassette_M() {
+        super();
+        itemType = ItemType.CASSETTE_M;
+    }
+}
+
 abstract class Player extends Item {
 }
 
@@ -83,6 +90,13 @@ class MP3 extends Player {
     MP3() {
         super();
         itemType = ItemType.MP3;
+    }
+}
+
+class Cassette_P extends Player {
+    Cassette_P() {
+        super();
+        itemType = ItemType.CASSETTE_P;
     }
 }
 
@@ -138,16 +152,17 @@ class Harmonica extends Wind {
     }
 }
 
-abstract class Clothing extends Item {
-    static int count = 0;
-    Clothing() {
+class Saxophone extends Wind {
+    String type;
+    String[] types = {"Type1", "Type2"};
+    Saxophone() {
         super();
-        count++;
+        type = types[Utility.rndFromRange(0,types.length-1)];
+        itemType = ItemType.SAXOPHONE;
     }
+}
 
-    int getCount() {
-        return count;
-    }
+abstract class Clothing extends Item {
 }
 
 class Hat extends Clothing {
@@ -207,5 +222,12 @@ class Strings extends Accessory {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
         itemType = ItemType.STRINGS;
+    }
+}
+
+class GigBag extends Accessory {
+    GigBag() {
+        super();
+        itemType = ItemType.GIGBAG;
     }
 }

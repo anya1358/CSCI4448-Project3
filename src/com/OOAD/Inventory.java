@@ -55,6 +55,10 @@ public class Inventory implements Logger {
             case PRACTICEAMP -> item = new PracticeAmp();
             case CABLE -> item = new Cable();
             case STRINGS -> item = new Strings();
+            case SAXOPHONE -> item = new Saxophone();
+            case CASSETTE_P -> item = new Cassette_P();
+            case CASSETTE_M -> item = new Cassette_M();
+            case GIGBAG -> item = new GigBag();
             default -> {
                 out("Error in makeNewItemByType - unexpected type enum");
                 item = null;
