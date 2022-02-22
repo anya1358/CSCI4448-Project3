@@ -20,6 +20,7 @@ public class Store implements Logger {
         clerks = new ArrayList<Clerk>();
         clerks.add(new Clerk("Velma",.05, this));
         clerks.add(new Clerk("Shaggy", .20, this));
+        clerks.add(new Clerk("Daphne", .10, this));
     }
 
     void openToday(int day) {
@@ -39,6 +40,7 @@ public class Store implements Logger {
         // pick a random clerk
         Clerk clerk = clerks.get(Utility.rndFromRange(0,clerks.size()-1));
         // if they are ok to work, set days worked on other clerks to 0
+
         if (clerk.daysWorked < 3) {
             clerk.daysWorked += 1;
             for (Clerk other: clerks) {

@@ -66,6 +66,13 @@ class Clerk extends Staff implements Logger {
     }
 
     void placeAnOrder(ItemType type) {
+        String itemName = type.toString().toLowerCase();
+        if(itemName == "hat" || itemName == "shirt" || itemName == "bandana"){
+            if(store.inventory.countByType(store.inventory.items, type) == 0){
+                out(this.name + " will not order more " + itemName + " because clothing is out of stock.");
+                return;
+            }
+        }
         out(this.name + " needs to order "+type.toString().toLowerCase());
         // order 3 more of this item type
         // they arrive in 1 to 3 days
@@ -168,6 +175,15 @@ class Clerk extends Staff implements Logger {
         ItemType type = Utility.randomEnum(ItemType.class);
         out(custName + " wants to sell a "+type.toString().toLowerCase());
         Item item = store.inventory.makeNewItemByType(type);
+
+        String itemName = item.itemType.toString().toLowerCase();
+        if(itemName == "hat" || itemName == "shirt" || itemName == "bandana"){
+            if(store.inventory.countByType(store.inventory.items, type) == 0){
+                out(this.name + " will not buy " + itemName + " because clothing is out of stock.");
+                return;
+            }
+        }
+
         // clerk will determine new or used, condition, purchase price (based on condition)
         // we'll take the random isNew, condition from the generated item
         out("Item is "+type.toString().toLowerCase()+" in "+item.condition.toString().toLowerCase()+" condition.");

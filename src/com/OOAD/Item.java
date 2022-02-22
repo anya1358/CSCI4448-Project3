@@ -139,6 +139,15 @@ class Harmonica extends Wind {
 }
 
 abstract class Clothing extends Item {
+    static int count = 0;
+    Clothing() {
+        super();
+        count++;
+    }
+
+    int getCount() {
+        return count;
+    }
 }
 
 class Hat extends Clothing {
@@ -193,7 +202,7 @@ class Cable extends Accessory {
 
 class Strings extends Accessory {
     String type;
-    String[] types = {};
+    String[] types = {"Type1", "Type2"};
     Strings() {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
