@@ -70,6 +70,11 @@ class Cassette_M extends Music {
 }
 
 abstract class Player extends Item {
+    boolean equalized;
+    Player() {
+        super();
+        equalized = false;
+    }
 }
 
 class CD_P extends Player {
@@ -105,9 +110,11 @@ abstract class Instrument extends Item {
 
 abstract class Stringed extends Instrument {
     boolean isElectric;
+    boolean tuned;
     Stringed() {
         super();
         isElectric = (Utility.rnd()>.5); // coin flip for electric or acoustic
+        tuned = false;
     }
 }
 
@@ -131,6 +138,11 @@ class Mandolin extends Stringed {
 }
 
 abstract class Wind extends Instrument {
+    boolean adjusted;
+    Wind() {
+        super();
+        adjusted = false;
+    }
 }
 
 class Flute extends Wind {
