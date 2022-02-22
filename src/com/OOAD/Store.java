@@ -41,6 +41,22 @@ public class Store implements Logger {
         Clerk clerk = clerks.get(Utility.rndFromRange(0,clerks.size()-1));
         // if they are ok to work, set days worked on other clerks to 0
 
+        // Placeholder for sick clerk
+        Clerk sick = clerk;
+
+        // Chance of sickness (.1)
+        if(Utility.rnd() > .9) {
+            out(clerk.name+" is sick and cannot work today.");
+            clerk.daysWorked = 0;
+            for (Clerk other: clerks) {
+                if (other != clerk) {
+                    sick = clerk;
+                    clerk = other;
+                    break;
+                }
+            }
+        }
+
         if (clerk.daysWorked < 3) {
             clerk.daysWorked += 1;
             for (Clerk other: clerks) {
@@ -52,7 +68,7 @@ public class Store implements Logger {
             out(clerk.name+" has worked maximum of 3 days in a row.");
             clerk.daysWorked = 0;   // they can't work, get another clerk
             for (Clerk other: clerks) {
-                if (other != clerk) {
+                if (other != clerk & other != sick) {
                     clerk = other;
                     break;
                 }
