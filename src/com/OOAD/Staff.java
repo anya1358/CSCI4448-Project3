@@ -177,7 +177,7 @@ class Clerk extends Staff implements Logger {
         Item item = store.inventory.makeNewItemByType(type);
 
         String itemName = item.itemType.toString().toLowerCase();
-        if(itemName == "hat" || itemName == "shirt" || itemName == "bandana"){
+        if(itemName.equals("hat") || itemName.equals("shirt") || itemName.equals("bandana")){
             if(store.inventory.countByType(store.inventory.items, type) == 0){
                 out(this.name + " will not buy " + itemName + " because clothing is out of stock.");
                 return;
@@ -247,7 +247,7 @@ class Clerk extends Staff implements Logger {
                 out("Item was removed from inventory.");
                 return;
             }
-            item_to_break.damageAnItem(item_to_break);
+            item_to_break.damageAnItem();
 
         }
     }

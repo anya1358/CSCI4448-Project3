@@ -11,12 +11,13 @@ public abstract class Item implements Logger {
     int daySold;            // set when sold
     ItemType itemType;      // set by subclass constructors
 
-    void damageAnItem(Item i) {
+    void damageAnItem() {
         //first decrement the listPrice by 20%
         //then decrement the condition
+        out("The broken item was a " + condition.toString().toLowerCase() + " condition " + itemType.toString().toLowerCase() + " with a list price of $" + listPrice);
         listPrice -= 0.2 * listPrice;
         condition.level -= 1;
-        out("Condition has been reduced to " + condition);
+        out("Condition has been reduced to " + condition.toString().toLowerCase() + " and the list price has been reduced 20% to $" + listPrice);
     }
 
     Item() {
