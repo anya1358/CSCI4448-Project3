@@ -17,7 +17,7 @@ public class Store implements Logger {
         cashFromBank = 0;   // no cash from bank yet
 
         // initialize the store's staff
-        clerks = new ArrayList<Clerk>();
+        clerks = new ArrayList<>();
         clerks.add(new Clerk("Velma",.05, this));
         clerks.add(new Clerk("Shaggy", .20, this));
         clerks.add(new Clerk("Daphne", .10, this));
@@ -56,7 +56,6 @@ public class Store implements Logger {
                 }
             }
         }
-
         if (clerk.daysWorked < 3) {
             clerk.daysWorked += 1;
             for (Clerk other: clerks) {
