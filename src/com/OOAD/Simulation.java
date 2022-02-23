@@ -22,6 +22,7 @@ public class Simulation implements Logger {
     Simulation() {
         weekDay = Weekday.MONDAY;   //set the starting day
         dayCounter = 0;
+
         store = new Store();
     }
 

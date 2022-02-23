@@ -10,11 +10,17 @@ class Clerk extends Staff implements Logger {
     int daysWorked;
     double damageChance;    // Velma = .05, Shaggy = .20
     Store store;
+    TuneBehavior tuneBehavior;
+    TuneBehaviorType tuneBehaviorType;
+    public static enum TuneBehaviorType {
+        HAPHAZARD, MANUAL, ELECTRONIC
+    }
 
     Clerk(String name, double damageChance, Store store) {
          this.name = name;
          this.damageChance = damageChance;
          this.store = store;
+         this.tuneBehaviorType = Utility.randomEnum(TuneBehaviorType.class);
          daysWorked = 0;
     }
 
@@ -63,6 +69,16 @@ class Clerk extends Staff implements Logger {
         int count = store.inventory.items.size();
         double worth = store.inventory.getValue(store.inventory.items);
         out(this.name + " finds " + count + " items in store, worth "+Utility.asDollar(worth));
+    }
+
+    void tuneItem(Item item){
+        //need to also maybe handle the case where the tune behavior is unidentified for the worst case scenario
+        //we also need a way to check if the item is tunable
+        switch (tuneBehaviorType){
+            case MANUAL -> tuneBehavior = new ManualTune();
+            case HAPHAZARD -> tuneBehavior = new HaphazardTune();
+            case ELECTRONIC -> tuneBehavior = new ElectronicTune();
+        }
     }
 
     void placeAnOrder(ItemType type) {
