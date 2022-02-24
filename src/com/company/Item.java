@@ -10,6 +10,7 @@ public abstract class Item implements Logger {
     double salePrice;       // set when sold
     int daySold;            // set when sold
     ItemType itemType;      // set by subclass constructors
+    boolean tunable = false;
 
     void damageAnItem() {
         //first decrement the listPrice by 20%
@@ -70,11 +71,23 @@ class Cassette_M extends Music {
     }
 }
 
-abstract class Player extends Item {
+abstract class TunableItem extends Item {
+    abstract void setProperty(boolean result);
+    abstract boolean getProperty();
+}
+
+abstract class Player extends TunableItem  {
     boolean equalized;
     Player() {
         super();
         equalized = false;
+        tunable = true;
+    }
+    public boolean getProperty(){
+        return equalized;
+    }
+    public void setProperty(boolean result){
+        equalized = result;
     }
 }
 
@@ -106,7 +119,7 @@ class Cassette_P extends Player {
     }
 }
 
-abstract class Instrument extends Item {
+abstract class Instrument extends TunableItem {
 }
 
 abstract class Stringed extends Instrument {
@@ -116,6 +129,13 @@ abstract class Stringed extends Instrument {
         super();
         isElectric = (Utility.rnd()>.5); // coin flip for electric or acoustic
         tuned = false;
+        tunable = true;
+    }
+    public boolean getProperty(){
+        return tuned;
+    }
+    public void setProperty(boolean result){
+        tuned = result;
     }
 }
 
@@ -143,6 +163,14 @@ abstract class Wind extends Instrument {
     Wind() {
         super();
         adjusted = false;
+        tunable = true;
+    }
+
+    public boolean getProperty(){
+        return adjusted;
+    }
+    public void setProperty(boolean result){
+        adjusted = result;
     }
 }
 
