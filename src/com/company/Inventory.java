@@ -18,7 +18,6 @@ public class Inventory implements Logger {
         arrivingItems = new ArrayList<>();
         soldItems = new ArrayList<>();
         discardedItems = new ArrayList<>();
-
         initializeInventory(items);
     }
 
@@ -106,6 +105,11 @@ public class Inventory implements Logger {
             }
         }
         return index;
+    }
+
+    boolean allClothingItemsSold(){
+        int clothing_count = countByType(items, ItemType.BANDANA) + countByType(items, ItemType.SHIRT) + countByType(items, ItemType.HAT);
+        return clothing_count == 0;
     }
 
 }

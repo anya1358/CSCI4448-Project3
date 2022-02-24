@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public abstract class Staff {
     String name;    // Velma and Shaggy
@@ -75,7 +76,7 @@ class Clerk extends Staff implements Logger {
         for (ItemType type: ItemType.values()) {
             int numItems = store.inventory.countByType(store.inventory.items,type);
             out(this.name + " counts "+numItems+" "+type.toString().toLowerCase());
-            if (numItems == 0) {
+            if (numItems == 0 && !store.itemsToStopSelling.contains(type)) {
                 this.placeAnOrder(type);
             }
         }
@@ -108,9 +109,9 @@ class Clerk extends Staff implements Logger {
 
     void placeAnOrder(ItemType type) {
         String itemName = type.toString().toLowerCase();
-        if(itemName == "hat" || itemName == "shirt" || itemName == "bandana"){
+        if(store.itemsToStopSelling.contains(type)){
             if(store.inventory.countByType(store.inventory.items, type) == 0){
-                out(this.name + " will not order more " + itemName + " because clothing is out of stock.");
+                out(this.name + " did not order more " + itemName + "s because " + itemName + "s are out of stock and the store stopped selling them.");
                 return;
             }
         }
@@ -140,11 +141,25 @@ class Clerk extends Staff implements Logger {
     }
 
     void openTheStore() {
-        int buyers = Utility.rndFromRange(1,10);
+        //need to use a poisson distribution for the number of buyers to 2 plus a random variate from a Poisson distribution with mean 3 (this will result in
+        //random numbers from 1 to about 6 or 7 with a rare spike to 10 or so).
+        int buyers = 2 + getPoissonRandom(3);
         int sellers = Utility.rndFromRange(1,4);
         out(buyers + " buyers, "+sellers+" sellers today.");
         for (int i = 1; i <= buyers; i++) this.sellAnItem(i);
         for (int i = 1; i <= sellers; i++) this.buyAnItem(i);
+    }
+
+    private static int getPoissonRandom(double mean) {
+        Random r = new Random();
+        double L = Math.exp(-mean);
+        int k = 0;
+        double p = 1.0;
+        do {
+            p = p * r.nextDouble();
+            k++;
+        } while (p > L);
+        return k - 1;
     }
     void sellAnItem(int customer) {
         String custName = "Buyer "+customer;
@@ -216,11 +231,10 @@ class Clerk extends Staff implements Logger {
         ItemType type = Utility.randomEnum(ItemType.class);
         out(custName + " wants to sell a "+type.toString().toLowerCase());
         Item item = store.inventory.makeNewItemByType(type);
-
         String itemName = item.itemType.toString().toLowerCase();
-        if(itemName == "hat" || itemName == "shirt" || itemName == "bandana"){
-            if(store.inventory.countByType(store.inventory.items, type) == 0){
-                out(this.name + " will not buy " + itemName + " because clothing is out of stock.");
+        if(store.itemsToStopSelling.contains(item.itemType)){
+            if(store.inventory.allClothingItemsSold()){
+                out(this.name + " will not buy " + itemName +" from customer " + customer + " because all clothing items are out of stock.");
                 return;
             }
         }

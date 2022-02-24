@@ -8,6 +8,7 @@ public class Store implements Logger {
     public double cashFromBank;
     public Inventory inventory;
     public int today;
+    public ArrayList<ItemType> itemsToStopSelling;
 
     Store() {
         // initialize the store's starting inventory
@@ -15,6 +16,13 @@ public class Store implements Logger {
 
         cashRegister = 0;   // cash register is empty to begin
         cashFromBank = 0;   // no cash from bank yet
+
+        //populate the item types that the store decides to stop selling
+        itemsToStopSelling = new ArrayList<>();
+        itemsToStopSelling.add(ItemType.BANDANA);
+        itemsToStopSelling.add(ItemType.SHIRT);
+        itemsToStopSelling.add(ItemType.HAT);
+
 
         // initialize the store's staff
         clerks = new ArrayList<Clerk>();
