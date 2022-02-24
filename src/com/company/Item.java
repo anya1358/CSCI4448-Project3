@@ -185,7 +185,7 @@ class Flute extends Wind {
 }
 class Harmonica extends Wind {
     String key;
-    String keys[] = {"E","A","G","C","D"};
+    String[] keys = {"E","A","G","C","D"};
     Harmonica() {
         super();
         key = keys[Utility.rndFromRange(0,keys.length-1)];
@@ -204,11 +204,12 @@ class Saxophone extends Wind {
 }
 
 abstract class Clothing extends Item {
+    static public boolean soldOut = false;
 }
 
 class Hat extends Clothing {
     String hatSize;
-    String hatSizes[] = {"XS", "S", "M", "L", "XL"};
+    String[] hatSizes = {"XS", "S", "M", "L", "XL"};
     Hat() {
         super();
         hatSize = hatSizes[Utility.rndFromRange(0,hatSizes.length-1)];
@@ -218,7 +219,7 @@ class Hat extends Clothing {
 
 class Shirt extends Clothing {
     String shirtSize;
-    String shirtSizes[] = {"XS", "S", "M", "L", "XL"};
+    String[] shirtSizes = {"XS", "S", "M", "L", "XL"};
     Shirt() {
         super();
         shirtSize = shirtSizes[Utility.rndFromRange(0,shirtSizes.length-1)];

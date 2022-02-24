@@ -2,13 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83920e74-00f1-48c5-b886-7eaaca7a2f9d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Accessory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Accessory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bandana.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bandana.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clothing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clothing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ElectronicTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ElectronicTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/GigBag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/GigBag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/HaphazardTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/HaphazardTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Hat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Hat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ManualTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ManualTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PracticeAmp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PracticeAmp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Shirt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Shirt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Strings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/TuneBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TuneBehavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
