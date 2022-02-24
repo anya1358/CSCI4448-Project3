@@ -38,27 +38,27 @@ public class Inventory implements Logger {
     Item makeNewItemByType(ItemType type) {
         Item item;
         switch (type) {
-            case PAPERSCORE -> item = new PaperScore();
-            case CD_M -> item = new CD_M();
-            case VINYL -> item = new Vinyl();
-            case GUITAR -> item = new Guitar();
-            case BASS -> item = new Bass();
-            case MANDOLIN -> item = new Mandolin();
-            case FLUTE -> item = new Flute();
-            case HARMONICA -> item = new Harmonica();
-            case CD_P -> item = new CD_P();
-            case RECORDPLAYER -> item = new RecordPlayer();
-            case MP3 -> item = new MP3();
-            case HAT -> item = new Hat();
-            case SHIRT -> item = new Shirt();
-            case BANDANA -> item = new Bandana();
-            case PRACTICEAMP -> item = new PracticeAmp();
-            case CABLE -> item = new Cable();
-            case STRINGS -> item = new Strings();
-            case SAXOPHONE -> item = new Saxophone();
-            case CASSETTE_P -> item = new Cassette_P();
-            case CASSETTE_M -> item = new Cassette_M();
-            case GIGBAG -> item = new GigBag();
+            case PAPERSCORE -> item = new PaperScore(this);
+            case CD_M -> item = new CD_M(this);
+            case VINYL -> item = new Vinyl(this);
+            case GUITAR -> item = new Guitar(this);
+            case BASS -> item = new Bass(this);
+            case MANDOLIN -> item = new Mandolin(this);
+            case FLUTE -> item = new Flute(this);
+            case HARMONICA -> item = new Harmonica(this);
+            case CD_P -> item = new CD_P(this);
+            case RECORDPLAYER -> item = new RecordPlayer(this);
+            case MP3 -> item = new MP3(this);
+            case HAT -> item = new Hat(this);
+            case SHIRT -> item = new Shirt(this);
+            case BANDANA -> item = new Bandana(this);
+            case PRACTICEAMP -> item = new PracticeAmp(this);
+            case CABLE -> item = new Cable(this);
+            case STRINGS -> item = new Strings(this);
+            case SAXOPHONE -> item = new Saxophone(this);
+            case CASSETTE_P -> item = new Cassette_P(this);
+            case CASSETTE_M -> item = new Cassette_M(this);
+            case GIGBAG -> item = new GigBag(this);
             default -> {
                 out("Error in makeNewItemByType - unexpected type enum");
                 item = null;
