@@ -72,7 +72,11 @@ public class Inventory implements Logger {
     // count of specific item types is needed sometimes
     int countByType(ArrayList<Item> list, ItemType type) {
         int count = 0;
-        for (Item item:list) if (item.itemType == type) count += 1;
+        for (Item item:list) {
+            if (item.itemType == type) {
+                count += 1;
+            }
+        }
         return count;
     }
 

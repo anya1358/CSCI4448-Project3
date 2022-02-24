@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Staff {
@@ -12,9 +13,13 @@ class Clerk extends Staff implements Logger {
     Store store;
     TuneBehavior tuneBehavior;
     TuneBehaviorType tuneBehaviorType;
+    ArrayList<TunableItem> tunableItems;
     public static enum TuneBehaviorType {
         HAPHAZARD, MANUAL, ELECTRONIC
     }
+    //wind instruments and stringed istruments
+    //flute harmonica sax, mandolin, bass
+    //cd_p record player mp3 cassette_p
 
     Clerk(String name, double damageChance, Store store) {
          this.name = name;
@@ -22,6 +27,7 @@ class Clerk extends Staff implements Logger {
          this.store = store;
          this.tuneBehaviorType = Utility.randomEnum(TuneBehaviorType.class);
          daysWorked = 0;
+         tunableItems = new ArrayList<>();
     }
 
     void arriveAtStore() {
@@ -59,6 +65,13 @@ class Clerk extends Staff implements Logger {
 
     void doInventory() {
         out(this.name + " is doing inventory.");
+        //check if there are any tunable items in the inventory
+        //get the tunable items
+        findTunableItems();
+        //tune all of the tunable items
+        for(TunableItem tunableItem: tunableItems){
+                tuneItem(tunableItem);
+        }
         for (ItemType type: ItemType.values()) {
             int numItems = store.inventory.countByType(store.inventory.items,type);
             out(this.name + " counts "+numItems+" "+type.toString().toLowerCase());
@@ -71,14 +84,26 @@ class Clerk extends Staff implements Logger {
         out(this.name + " finds " + count + " items in store, worth "+Utility.asDollar(worth));
     }
 
-    void tuneItem(Item item){
+    void findTunableItems(){
+        for(Item item: store.inventory.items){
+            if(item.tunable){
+                TunableItem tunableItem = ((TunableItem) item);
+                tunableItems.add(tunableItem);
+            }
+        }
+    }
+
+    void tuneItem(TunableItem item){
         //need to also maybe handle the case where the tune behavior is unidentified for the worst case scenario
         //we also need a way to check if the item is tunable
+
         switch (tuneBehaviorType){
             case MANUAL -> tuneBehavior = new ManualTune();
             case HAPHAZARD -> tuneBehavior = new HaphazardTune();
             case ELECTRONIC -> tuneBehavior = new ElectronicTune();
         }
+        out(this.name + " is tuning a " + item.itemType.toString().toLowerCase() + " with a " + tuneBehaviorType.toString().toLowerCase() + " tuning method.");
+        tuneBehavior.Tune(item, this);
     }
 
     void placeAnOrder(ItemType type) {
@@ -252,20 +277,26 @@ class Clerk extends Staff implements Logger {
             out(this.name + " doesn't break anything.");
         }
         else {
-            out(this.name + " breaks something!");
+
             // reduce the condition for a random item
             // take the item off the main inventory and put it on the broken items ArrayList
             // left as an exercise to the reader :-)
             int index = (int)(Math.random() * store.inventory.items.size());
             Item item_to_break = store.inventory.items.get(index);
-            if(item_to_break.condition == Condition.POOR){
-                store.inventory.items.remove(item_to_break);
-                out("Item was removed from inventory.");
-                return;
-            }
-            item_to_break.damageAnItem();
+            damageItem(item_to_break);
+
 
         }
+    }
+
+    void damageItem(Item item){
+        out(this.name + " breaks something!");
+        if(item.condition == Condition.POOR){
+            store.inventory.items.remove(item);
+            out("Item was removed from inventory.");
+            return;
+        }
+        item.damageAnItem();
     }
     void leaveTheStore() {
         out(this.name + " locks up the store and leaves.");
