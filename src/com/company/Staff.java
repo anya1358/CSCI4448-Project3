@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -12,6 +13,12 @@ class Clerk extends Staff implements Logger {
     int daysWorked;
     double damageChance;    // Velma = .05, Shaggy = .20
     Store store;
+    int items_damaged_cleaning;
+    int items_damaged_tuning;
+    int items_sold;
+    int items_purchased;
+    int items_added_to_inventory;
+    int items_ordered;
     TuneBehavior tuneBehavior;
     TuneBehaviorType tuneBehaviorType;
     ArrayList<TunableItem> tunableItems;
@@ -29,11 +36,18 @@ class Clerk extends Staff implements Logger {
          this.tuneBehaviorType = Utility.randomEnum(TuneBehaviorType.class);
          daysWorked = 0;
          tunableItems = new ArrayList<>();
+
     }
 
     void arriveAtStore() {
+        items_damaged_cleaning = 0;
+        items_damaged_tuning = 0;
+        items_purchased = 0;
+        items_sold = 0;
+        items_added_to_inventory = 0;
+        items_ordered = 0;
         out(this.name + " arrives at store.");
-        // have to check for any arriving items slated for this day
+        // have to check for any arriving items slated for this day'
         out( this.name + " checking for arriving items.");
         // there's a tricky concurrent removal thing that prevents doing this
         // with a simple for loop - you need to use an iterator
@@ -44,6 +58,7 @@ class Clerk extends Staff implements Logger {
             if (item.dayArriving == store.today) {
                 out( this.name + " putting a " + item.itemType.toString().toLowerCase() + " in inventory.");
                 store.inventory.items.add(item);
+                items_added_to_inventory++;
                 itr.remove();
             }
         }
@@ -109,8 +124,8 @@ class Clerk extends Staff implements Logger {
 
     void placeAnOrder(ItemType type) {
         String itemName = type.toString().toLowerCase();
-        if(store.itemsToStopSelling.contains(type)){
-            if(store.inventory.countByType(store.inventory.items, type) == 0){
+        if(store.itemsToStopSelling.contains(type)) {
+            if (store.inventory.countByType(store.inventory.items, type) == 0) {
                 out(this.name + " did not order more " + itemName + "s because " + itemName + "s are out of stock and the store stopped selling them.");
                 return;
             }
@@ -132,6 +147,7 @@ class Clerk extends Staff implements Logger {
                     out(this.name + " ordered a " + item.itemType.toString().toLowerCase());
                     item.dayArriving = store.today + arrivalDay;
                     store.inventory.arrivingItems.add(item);
+                    items_ordered++;
                 }
                 else {
                     out("Insufficient funds to order this item.");
@@ -246,6 +262,7 @@ class Clerk extends Staff implements Logger {
             store.inventory.soldItems.add(sale_items.get(i));
 
             store.cashRegister += sale_items.get(i).listPrice;
+            items_sold++;
         }
 
         // Reprint inventory count to double check if sale items got removed correctly
@@ -310,6 +327,7 @@ class Clerk extends Staff implements Logger {
             item.listPrice = 2 * item.purchasePrice;
             item.dayArriving = store.today;
             store.inventory.items.add(item);
+            items_purchased++;
         }
         else {
             out(this.name + "cannot buy item, register only has "+Utility.asDollar(store.cashRegister));
@@ -334,6 +352,7 @@ class Clerk extends Staff implements Logger {
             // reduce the condition for a random item
             // take the item off the main inventory and put it on the broken items ArrayList
             // left as an exercise to the reader :-)
+            items_damaged_cleaning++;
             int index = (int)(Math.random() * store.inventory.items.size());
             Item item_to_break = store.inventory.items.get(index);
             damageItem(item_to_break);
