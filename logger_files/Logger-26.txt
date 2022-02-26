@@ -1,0 +1,13 @@
+Summary for Day 26 :::::::
+Daphne arrives at the store.
+3 items were added to the inventory.
+The register has $444.73999999999955.
+The register has $1444.7399999999996 after the bank.
+The total number of items in the store inventory is 78.
+The total purchase price of the items in the inventory is $1729.2000000000003.
+The number of items damaged during tuning is 0.
+The number of items ordered is 0.
+The number of items sold is 0.
+The number of items purchased is 1.
+The number of items damaged while cleaning is 0.
+Daphne left the store.

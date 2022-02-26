@@ -19,7 +19,20 @@ public abstract class Item implements Logger {
         //then decrement the condition
         out("The broken item was a " + condition.toString().toLowerCase() + " condition " + itemType.toString().toLowerCase() + " with a list price of $" + listPrice);
         listPrice -= 0.2 * listPrice;
-        condition.level -= 1;
+        //below is messy because could not figure out enum attatched values
+        if(condition == Condition.EXCELLENT){
+            condition = Condition.VERYGOOD;
+        }
+        else if(condition == Condition.VERYGOOD){
+            condition = Condition.GOOD;
+        }
+        else if(condition == Condition.GOOD){
+            condition = Condition.FAIR;
+        }
+        else{
+            condition = Condition.POOR;
+        }
+        //condition.level -= 1;
         out("Condition has been reduced to " + condition.toString().toLowerCase() + " and the list price has been reduced 20% to $" + listPrice);
     }
 
