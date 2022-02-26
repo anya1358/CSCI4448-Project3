@@ -161,6 +161,7 @@ class Clerk extends Staff implements Logger {
         } while (p > L);
         return k - 1;
     }
+
     void sellAnItem(int customer) {
         String custName = "Buyer "+customer;
         out(this.name+" serving "+custName);
@@ -198,19 +199,57 @@ class Clerk extends Staff implements Logger {
     }
 
     // things we need to do when an item is sold
-    void sellItemtoCustomer(Item item,String custName) {
-        String itemName = item.itemType.toString().toLowerCase();
+    void sellItemtoCustomer(Item item, String custName) {
         String price = Utility.asDollar(item.listPrice);
-        out (this.name + " is selling "+ itemName + " for " + price +" to "+custName);
-        // when sold - move item to sold items with daySold and salePrice noted
+
+        // Create new itemSale with the item and store
+        Sale sale = new ItemSale(item, store);
+
+        // Arraylist to hold ArrayList returned by getItems
+        ArrayList<Item> sale_items = new ArrayList<Item>();
+
+        // Print inventory count before sale
+        out ( "inventory count: " + store.inventory.items.size());
+
+        // If item is stringed type
+        if(item.stringed){
+            sale = new GigBagAccessory(sale, store);
+            sale = new CableAccessory(sale, store);
+            sale = new PracticeAmpAccessory(sale, store);
+            sale = new StringAccessory(sale, store);
+            sale_items = sale.getItems();
+        }
+
+        out (this.name + " is selling "+ sale.items_for_sale.get(0).itemType.toString().toLowerCase() + " for " + price +" to "+custName);
+
+        // If there are any added accessories to the sale
+        if(sale_items.size() > 1){
+            out ("Added accessories: ");
+            // Loop through the sale (starting after the first item) and print price for added accessories
+            for(int i = 1; i < sale_items.size(); i++){
+                price = Utility.asDollar(sale_items.get(i).listPrice);
+                out(sale_items.get(i).itemType.toString().toLowerCase() + " for " + price);
+            }
+        }
+
+        // Loop through the sale
+        // Remove sale items from inventory
+        // Set sale items salePrice and daySold
+        // Add sale items to soldItems
+        // Update money from items to register
+        for(int i = 0; i < sale_items.size(); i++){
+            store.inventory.items.remove(sale_items.get(i));
+
+            sale_items.get(i).salePrice = sale_items.get(i).listPrice;
+            sale_items.get(i).daySold = store.today;
+
+            store.inventory.soldItems.add(sale_items.get(i));
+
+            store.cashRegister += sale_items.get(i).listPrice;
+        }
+
+        // Reprint inventory count to double check if sale items got removed correctly
         out ( "inventory count: "+store.inventory.items.size());
-        store.inventory.items.remove(item);
-        out ( "inventory count: "+store.inventory.items.size());
-        item.salePrice = item.listPrice;
-        item.daySold = store.today;
-        store.inventory.soldItems.add(item);
-        // money for item goes to register
-        store.cashRegister += item.listPrice;
     }
 
     // find a selected item of a certain type from the items

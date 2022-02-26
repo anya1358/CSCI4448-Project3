@@ -1,29 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="83920e74-00f1-48c5-b886-7eaaca7a2f9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Sale.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/SaleDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Accessory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Accessory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bandana.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bandana.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Bass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/CD_M.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/CD_M.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/CD_P.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/CD_P.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cassette_M.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cassette_M.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cassette_P.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Cassette_P.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clerk.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clothing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Clothing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ElectronicTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ElectronicTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Flute.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Flute.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/GigBag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/GigBag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/HaphazardTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/HaphazardTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Guitar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Guitar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Harmonica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Harmonica.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Hat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Hat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ManualTune.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/ManualTune.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Instrument.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Instrument.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/MP3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/MP3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Mandolin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Mandolin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Music.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PaperScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PaperScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PracticeAmp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/PracticeAmp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/RecordPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/RecordPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Saxophone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Saxophone.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Shirt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Shirt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Stringed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Stringed.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Strings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/TunableItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/TunableItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Vinyl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Vinyl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Wind.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSCI4448-Project3/com/company/Wind.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +50,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +68,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -56,6 +84,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

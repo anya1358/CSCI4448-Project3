@@ -11,6 +11,8 @@ public abstract class Item implements Logger {
     int daySold;            // set when sold
     ItemType itemType;      // set by subclass constructors
     boolean tunable = false;
+    boolean stringed = false;
+    boolean isElectric = false;
 
     void damageAnItem() {
         //first decrement the listPrice by 20%
@@ -38,6 +40,7 @@ abstract class Music extends Item {
     String album;
     String[] bands = {"Yes","Jethro Tull","Rush","Genesis","ELP","Enya"};
     String[] albums = {"Fragile","Stormwatch","2112","Abacab","Tarkus","The Memory of Trees"};
+
     Music() {
         super();
         band = bands[Utility.rndFromRange(0,bands.length-1)];
@@ -78,11 +81,13 @@ abstract class TunableItem extends Item {
 
 abstract class Player extends TunableItem  {
     boolean equalized;
+
     Player() {
         super();
         equalized = false;
         tunable = true;
     }
+
     public boolean getProperty(){
         return equalized;
     }
@@ -123,13 +128,14 @@ abstract class Instrument extends TunableItem {
 }
 
 abstract class Stringed extends Instrument {
-    boolean isElectric;
     boolean tuned;
+
     Stringed() {
         super();
         isElectric = (Utility.rnd()>.5); // coin flip for electric or acoustic
         tuned = false;
         tunable = true;
+        stringed = true;
     }
     public boolean getProperty(){
         return tuned;
@@ -160,6 +166,7 @@ class Mandolin extends Stringed {
 
 abstract class Wind extends Instrument {
     boolean adjusted;
+
     Wind() {
         super();
         adjusted = false;
@@ -177,6 +184,7 @@ abstract class Wind extends Instrument {
 class Flute extends Wind {
     String type;
     String[] types = {"Piccolo","Alto","Bass","Tierce","Concert","Plastic"};
+
     Flute() {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
@@ -186,6 +194,7 @@ class Flute extends Wind {
 class Harmonica extends Wind {
     String key;
     String[] keys = {"E","A","G","C","D"};
+
     Harmonica() {
         super();
         key = keys[Utility.rndFromRange(0,keys.length-1)];
@@ -196,6 +205,7 @@ class Harmonica extends Wind {
 class Saxophone extends Wind {
     String type;
     String[] types = {"Type1", "Type2"};
+
     Saxophone() {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
@@ -210,6 +220,7 @@ abstract class Clothing extends Item {
 class Hat extends Clothing {
     String hatSize;
     String[] hatSizes = {"XS", "S", "M", "L", "XL"};
+
     Hat() {
         super();
         hatSize = hatSizes[Utility.rndFromRange(0,hatSizes.length-1)];
@@ -220,6 +231,7 @@ class Hat extends Clothing {
 class Shirt extends Clothing {
     String shirtSize;
     String[] shirtSizes = {"XS", "S", "M", "L", "XL"};
+
     Shirt() {
         super();
         shirtSize = shirtSizes[Utility.rndFromRange(0,shirtSizes.length-1)];
@@ -240,6 +252,7 @@ abstract class Accessory extends Item {
 class PracticeAmp extends Accessory {
     int wattage;
     int wattages[] = {5, 10, 15, 20, 25, 30};
+
     PracticeAmp() {
         super();
         wattage = wattages[Utility.rndFromRange(0,wattages.length-1)];
@@ -250,6 +263,7 @@ class PracticeAmp extends Accessory {
 class Cable extends Accessory {
     int length;
     int lengths[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
     Cable() {
         super();
         length = lengths[Utility.rndFromRange(0,lengths.length-1)];
@@ -260,6 +274,7 @@ class Cable extends Accessory {
 class Strings extends Accessory {
     String type;
     String[] types = {"Type1", "Type2"};
+
     Strings() {
         super();
         type = types[Utility.rndFromRange(0,types.length-1)];
