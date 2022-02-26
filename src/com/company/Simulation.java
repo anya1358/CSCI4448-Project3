@@ -1,12 +1,32 @@
 package com.company;
 
-import java.util.Locale;
+import java.util.ArrayList;
 
 // top level object to run the simulation
-public class Simulation implements Logger {
+public class Simulation implements Logger, Observable {
     Store store;
     int dayCounter;
     Weekday weekDay;
+    ArrayList<Observer> observerArrayList;
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observerArrayList.add(observer);
+    }
+
+    @Override
+    public void notifyObservers()  {
+        for(Observer observer: observerArrayList){
+            observer.update();
+        }
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observerArrayList.remove(observer);
+    }
+
+
 
     // enum for Weekdays
     // next implementation from
@@ -23,14 +43,25 @@ public class Simulation implements Logger {
         weekDay = Weekday.MONDAY;   //set the starting day
         dayCounter = 0;
         store = new Store();
+        observerArrayList = new ArrayList<>();
     }
 
     void startSim(int days) {
+        //add the tracker observer here
+        Observer tracker = new TrackerConsumer(store);
+        registerObserver(tracker);
         for (int day = 1; day <= days; day++) {
             out(" ");
             out("*** Simulation day "+day+" ***");
+            Observer logger = new LoggerConsumer(store);
+            registerObserver(logger);
             startDay(day);
+            //first update the observers
+            notifyObservers();
+            //then remove the logger observer
+            removeObserver(logger);
         }
+        removeObserver(tracker);
     }
 
     void startDay(int day) {

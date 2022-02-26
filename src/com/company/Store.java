@@ -1,4 +1,5 @@
 package com.company;
+import java.io.File;
 import java.util.ArrayList;
 
 public class Store implements Logger {
@@ -22,7 +23,6 @@ public class Store implements Logger {
         itemsToStopSelling.add(ItemType.BANDANA);
         itemsToStopSelling.add(ItemType.SHIRT);
         itemsToStopSelling.add(ItemType.HAT);
-
 
         // initialize the store's staff
         clerks = new ArrayList<Clerk>();

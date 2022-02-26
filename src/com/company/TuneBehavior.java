@@ -23,6 +23,7 @@ class HaphazardTune implements TuneBehavior{
             item.setProperty(!item.getProperty());
             if(!item.getProperty()){
                 if(Utility.rnd() > 0.9){
+                    clerk.items_damaged_tuning++;
                     clerk.damageItem(item);
                 }
             }
@@ -46,6 +47,7 @@ class ManualTune implements TuneBehavior{
             if(Utility.rnd() > 0.8){
                 item.setProperty(false);
                 if(Utility.rnd() > 0.9){
+                    clerk.items_damaged_tuning++;
                     clerk.damageItem(item);
                 }
             }
