@@ -16,16 +16,21 @@ class LoggerConsumer extends Observer {
     @Override
     public void update() {
         //update for the logger is simply storing the daily actions to a file
-        File file = new File("Logger-"+store.today+".txt");
+        File file = new File("./logger_files/Logger-"+store.today+".txt");
         try {
             boolean var = file.createNewFile();
-            FileWriter myWriter = new FileWriter("Logger-"+store.today+".txt");
+            FileWriter myWriter = new FileWriter("./logger_files/Logger-"+store.today+".txt");
             myWriter.write("Summary for Day " + store.today + " :::::::\n");
             //handle the arrive at store
             myWriter.write(store.activeClerk.name + " arrives at the store.\n");
             myWriter.write(store.activeClerk.items_added_to_inventory + " items were added to the inventory.\n");
             //Check register and go to bank actions
-            myWriter.write("The register has $" + store.cashRegister + " before the bank.\n");
+            if(store.activeClerk.went_to_bank) {
+                myWriter.write("The register has $" + (store.cashRegister - 1000) + ".\n");
+            }
+            else{
+                myWriter.write("The register has $" + (store.cashRegister) + ".\n");
+            }
             myWriter.write("The register has $" + store.cashRegister + " after the bank.\n");
             //DoInventory
             myWriter.write( "The total number of items in the store inventory is " + store.inventory.items.size() + ".\n");
@@ -72,11 +77,10 @@ class TrackerConsumer extends Observer implements Logger{
         clerk_counts.get(store.activeClerk)[0] += store.activeClerk.items_sold;
         clerk_counts.get(store.activeClerk)[1] += store.activeClerk.items_purchased;
         clerk_counts.get(store.activeClerk)[2] += store.activeClerk.items_damaged_cleaning + store.activeClerk.items_damaged_tuning;
-        out("hi");
 
         out("Tracker: Day " + store.today);
         out("Clerk        Items Sold        Items Purchased        Items Damaged");
         for (Map.Entry<Clerk,int[]> entry : clerk_counts.entrySet())
-            out(entry.getKey() + "        " + entry.getValue()[0] + "        " + entry.getValue()[1] + "        " + entry.getValue()[2]);
+            out(entry.getKey().name + "           " + entry.getValue()[0] + "                  " + entry.getValue()[1] + "                     " + entry.getValue()[2]);
         }
     }

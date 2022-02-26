@@ -22,6 +22,7 @@ class Clerk extends Staff implements Logger {
     TuneBehavior tuneBehavior;
     TuneBehaviorType tuneBehaviorType;
     ArrayList<TunableItem> tunableItems;
+    boolean went_to_bank;
     public static enum TuneBehaviorType {
         HAPHAZARD, MANUAL, ELECTRONIC
     }
@@ -36,6 +37,7 @@ class Clerk extends Staff implements Logger {
          this.tuneBehaviorType = Utility.randomEnum(TuneBehaviorType.class);
          daysWorked = 0;
          tunableItems = new ArrayList<>();
+         went_to_bank = false;
 
     }
 
@@ -76,6 +78,7 @@ class Clerk extends Staff implements Logger {
         out(this.name + " gets money from the bank.");
         store.cashRegister += 1000;
         store.cashFromBank += 1000;
+        went_to_bank = true;
         this.checkRegister();
     }
 

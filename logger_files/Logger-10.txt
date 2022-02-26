@@ -1,0 +1,13 @@
+Summary for Day 10 :::::::
+Shaggy arrives at the store.
+0 items were added to the inventory.
+The register has $1465.82.
+The register has $1465.82 after the bank.
+The total number of items in the store inventory is 58.
+The total purchase price of the items in the inventory is $1285.0.
+The number of items damaged during tuning is 0.
+The number of items ordered is 3.
+The number of items sold is 0.
+The number of items purchased is 0.
+The number of items damaged while cleaning is 0.
+Shaggy left the store.

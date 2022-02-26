@@ -1,0 +1,13 @@
+Summary for Day 2 :::::::
+Velma arrives at the store.
+0 items were added to the inventory.
+The register has $1285.3.
+The register has $1285.3 after the bank.
+The total number of items in the store inventory is 59.
+The total purchase price of the items in the inventory is $1338.8000000000002.
+The number of items damaged during tuning is 1.
+The number of items ordered is 0.
+The number of items sold is 2.
+The number of items purchased is 3.
+The number of items damaged while cleaning is 1.
+Velma left the store.
